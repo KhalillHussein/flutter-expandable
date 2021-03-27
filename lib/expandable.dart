@@ -435,7 +435,7 @@ class Expandable extends StatelessWidget {
     return AnimatedCrossFade(
       alignment: theme.alignment!,
       firstChild: collapsed,
-      secondChild: expanded,
+      secondChild: controller?.expanded ?? true ? expanded : SizedBox(),
       firstCurve: Interval(theme.collapsedFadeStart, theme.collapsedFadeEnd,
           curve: theme.fadeCurve!),
       secondCurve: Interval(theme.expandedFadeStart, theme.expandedFadeEnd,
