@@ -408,7 +408,7 @@ class ExpandableController extends ValueNotifier<bool> {
 /// The state is determined by an instance of [ExpandableController] provided by [ScopedModel]
 class Expandable extends StatelessWidget {
   /// Whe widget to show when collapsed
-  final Widget collapsed;
+  final Widget? collapsed;
 
   /// The widget to show when expanded
   final Widget expanded;
@@ -434,7 +434,7 @@ class Expandable extends StatelessWidget {
 
     return AnimatedCrossFade(
       alignment: theme.alignment!,
-      firstChild: collapsed,
+      firstChild: collapsed ?? SizedBox(),
       secondChild: controller?.expanded ?? true ? expanded : SizedBox(),
       firstCurve: Interval(theme.collapsedFadeStart, theme.collapsedFadeEnd,
           curve: theme.fadeCurve!),
